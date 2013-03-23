@@ -16,17 +16,28 @@ end
 
 def chunker(tweet, num)
   sample = logical_stop(tweet[0,135])
-  Twitter.update(sample + "(pt#{num})")
-  return tweet[sample.length..-1]
+  return sample, tweet[sample.length..-1]
 end   
 
 def recurring(tweet)
+  tweets = Hash.new
   n = 1
   until tweet.length < 131
-    tweet = chunker(tweet, n)
+    sample, tweet = chunker(tweet, n)
+    tweets[n] = sample
     n += 1
   end
-  return tweet, n
+  return tweet, n, tweets
+end
+
+def multi_tweet(array, n)
+  part = 1
+  until part > n
+    Twitter.update(array[part] + "(#{part}/#{n})")
+    # For Testing without submitting to twitter
+    #puts (array[part] + "(#{part}/#{n})")
+    part += 1
+  end
 end
 
 print "Enter your tweet>"
@@ -35,8 +46,9 @@ tweet = gets.chomp
 if tweet.length > 140
   puts "That is too long for just one tweet!"
   puts "Chopping it up for you, please wait!"
-  tweet, n = recurring(tweet)
-  Twitter.update(tweet + "(pt#{n}/END)")
+  tweet, n, tweets = recurring(tweet)
+  tweets[n] = tweet
+  multi_tweet(tweets, n)
 else
   Twitter.update(tweet)
 end
