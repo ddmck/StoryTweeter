@@ -22,7 +22,7 @@ end
 def recurring(tweet)
   tweets = Hash.new
   n = 1
-  until tweet.length < 131
+  until tweet.length < 135
     sample, tweet = chunker(tweet, n)
     tweets[n] = sample
     n += 1
