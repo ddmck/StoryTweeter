@@ -1,7 +1,7 @@
 StoryTweeter
 ============
 
-Accepts a paragraph of text and if over 140 characters splits in into 135 character chunk and then tweets them in the correct order.
+Accepts a paragraph of text and if it contains over 140 characters splits it in into 135 character chunks and then tweets them in the correct order with an index.
 
 
 Known Bugs
