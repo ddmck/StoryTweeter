@@ -15,7 +15,7 @@ def logical_stop(cut)
   return cut
 end
 
-# Splits the text into 
+# Splits the text into chunks
 def chunker(tweet)
   sample = logical_stop(tweet[0,135])
   return sample, tweet[sample.length..-1]
