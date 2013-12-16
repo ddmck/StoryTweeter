@@ -1,10 +1,10 @@
 require 'twitter'
 
 Twitter.configure do |config|
-  config.consumer_key = 'YOUR_CONSUMER_KEY'
-  config.consumer_secret = "YOUR_CONSUMER_SECRET"
-  config.oauth_token = "YOUR_OAUTH_TOKEN"
-  config.oauth_token_secret = "YOUR_OAUTH_SECRET"
+  config.consumer_key = 'xpfzDCbIPB0ov9z7geHXQ'
+  config.consumer_secret = "wVdsySYlqjLMSZJvETVmwYh0JMTjJp5cVVMmOZlT76o"
+  config.oauth_token = "49119925-OLoz9wBpJTZcRISNgPxUqOeipmu1V9oWfS1cYigli"
+  config.oauth_token_secret = "Wk4Wzej3hAL90VXHoQs4ui0YDNLkfotbaoUH4GQOKKs"
 end
 
 # Finds a place to stop that isn't mid-word
